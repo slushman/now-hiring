@@ -1,0 +1,622 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"15px",
+				"115px"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"trans",
+				"transition"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"$",
+				"$dark"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"inline",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/chriswilcoxson/Dropbox/Sites/multisite.dev/wp-content/plugins/simple-lyrics/simple-lyrics.php",
+			"settings":
+			{
+				"buffer_size": 33564,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/chriswilcoxson/Dropbox/Sites/multisite.dev/wp-content/plugins/simple-lyrics"
+	],
+	"file_history":
+	[
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/partials/now-hiring-admin-display-metabox-job-info.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/now-hiring.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring-widget.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/partials/now-hiring-display-widget.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/partials/now-hiring-admin-display-metabox-job-location.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring-activator.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/class-now-hiring-admin.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/untitled",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/class-now-hiring-public.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/partials/now-hiring-public-display.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/partials/now-hiring-public-display-single.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/js/now-hiring-public.js",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/css/now-hiring-public.css",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring-loader.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring-i18n.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-now-hiring-deactivator.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/partials/now-hiring-admin-display.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/uninstall.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/js/now-hiring-admin.js",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/css/now-hiring-admin.css",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/README.txt",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/class-plugin-name-admin.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/admin/partials/plugin-name-admin-display.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-plugin-name-activator.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-plugin-name-deactivator.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-plugin-name-i18n.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-plugin-name-loader.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/includes/class-plugin-name.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/class-plugin-name-public.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/plugins/now-hiring/public/partials/plugin-name-public-display.php",
+		"/Users/chriswilcoxson/Dropbox/Resources/SVGs/schoolzone.svg",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/sidebar.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/index.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/page.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/single.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/search.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/cmofil/sass/mixins/_mixins-theme.scss",
+		"/Volumes/dccwork/Children's Museum of IL/Web/Joomla/configuration.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/index.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/single.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/mixins/_mixins-slushman.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/variables-site/_structure.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/home.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/functions.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/footer.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/header.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/site/global/_header.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/site/global/_content.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/site/global/_footer.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/forms/_formidable.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/partial-flexi.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/navigation/_menus.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/typography/_copy.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/partial_flexi.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/navigation/_navigation.scss",
+		"/Users/chriswilcoxson/Dropbox/Resources/Logan County/IL Tourism Logo.svg",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/site/global/_home.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-config.php",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/variables-site/_colors.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/variables-site/_variables-site.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/sass/variables-site/_typography.scss",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/3cb9294c315f9ae70bd1e1b4ef9f5a5d3631d8e9/_fields.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/3cb9294c315f9ae70bd1e1b4ef9f5a5d3631d8e9/_formidable.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/3cb9294c315f9ae70bd1e1b4ef9f5a5d3631d8e9/_forms.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/46fb22567c5104ee083faae6c5b5c6e8cfe8bf0a/_accessibility.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/46fb22567c5104ee083faae6c5b5c6e8cfe8bf0a/_alignments.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/46fb22567c5104ee083faae6c5b5c6e8cfe8bf0a/_clearings.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/46fb22567c5104ee083faae6c5b5c6e8cfe8bf0a/_infinite-scroll.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/53ec395fc12ed7f2f5a99dc4a755a7e23863c3d4/_colors.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/53ec395fc12ed7f2f5a99dc4a755a7e23863c3d4/_fontawesome.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/53ec395fc12ed7f2f5a99dc4a755a7e23863c3d4/_structure.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/53ec395fc12ed7f2f5a99dc4a755a7e23863c3d4/_typography.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/53ec395fc12ed7f2f5a99dc4a755a7e23863c3d4/_variables-site.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/65be8369b6a3b069464c16065c36e42a426580eb/_mixins-master.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/65be8369b6a3b069464c16065c36e42a426580eb/_mixins-slushman.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/65be8369b6a3b069464c16065c36e42a426580eb/_mixins-theme.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/6769af12f71ef56ec35083313c772d927008d4a3/_content.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/6769af12f71ef56ec35083313c772d927008d4a3/_footer.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/6769af12f71ef56ec35083313c772d927008d4a3/_header.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/6769af12f71ef56ec35083313c772d927008d4a3/_home.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/6e1c261431fd900608617cdc4f1960e990b02ae0/style.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/7cc4d9e25a81542b966fa1a67fd511807730df12/_widgets.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_accordion.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_alert-boxes.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_block-grid.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_breadcrumbs.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_button-groups.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_buttons.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_clearing.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_dropdown-buttons.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_dropdown.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_flex-video.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_forms.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_global.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_grid.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_icon-bar.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_inline-lists.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_joyride.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_keystrokes.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_labels.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_magellan.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_offcanvas.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_orbit.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_pagination.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_panels.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_pricing-tables.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_progress-bars.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_range-slider.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_reveal.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_side-nav.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_split-buttons.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_sub-nav.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_switches.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_tables.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_tabs.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_thumbs.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_tooltips.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_top-bar.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_type.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/851e0bf966595b02ee066c4709ff8a1155d3fc37/_visibility.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/894f85a2a1ef0d4ec37f4ed53a4bb4997b27edac/_site.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/cf6b4c7df548d23d32dc1c43dd9a8334bab1bcd0/_links.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/cf6b4c7df548d23d32dc1c43dd9a8334bab1bcd0/_menus.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/cf6b4c7df548d23d32dc1c43dd9a8334bab1bcd0/_navigation.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/cf6b4c7df548d23d32dc1c43dd9a8334bab1bcd0/_social.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/de8ab5c9e0a350991d9a23e12706c77021bf6803/_reset.scssc",
+		"/Users/chriswilcoxson/Dropbox/Sites/dcc.dev/wp-content/themes/logancounty/.sass-cache/e1a70cbe239c04ea233017d652543ae5bd323bbc/_foundation.scssc"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/Users/macuser/Sites/dcc/wp-content/themes/logancounty",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$selections",
+			"get_Now_Hiring",
+			"n    N ",
+			"n    s",
+			"@since     1.0.0",
+			"@var      N",
+			"y                $",
+			"y                $ ",
+			"n   t",
+			"m      a",
+			"l    $",
+			"t      O",
+			"t      O ",
+			"m      i",
+			"t               $",
+			"g               $",
+			"m      o",
+			"y    $",
+			"@var      a",
+			"@var      a ",
+			"@access   p",
+			"m    s",
+			"@subpackage N",
+			"m      s",
+			"g    $",
+			"@var      s",
+			"@access   private",
+			"@author     Your Name <email@example.com>",
+			"@subpackage Now_Hiring/admin",
+			"@subpackage Now_Hiring/admin/partials",
+			"@package    Now_Hiring",
+			"@since      1.0.0",
+			"@link       http://example.com",
+			"@since    1.0.0",
+			"@since    1.0.0 ",
+			"@package           Now_Hiring",
+			"@since             1.0.0",
+			"@link              http://example.com",
+			"Plugin_Name",
+			"plugin-name",
+			"$color__background-screen",
+			"main_bkgd.png",
+			"checkbox",
+			"main_bkgd",
+			"main_",
+			"sm-",
+			"@include",
+			"$font__cursive",
+			"event-hover",
+			"address",
+			"tourism",
+			"/Users/macuser/",
+			"/Users/macuser/Dropbox/",
+			"tourism",
+			".soliloquy-caption-inside",
+			" get_svg",
+			" bet_svg",
+			"get_svg",
+			"get_site",
+			"moment",
+			"location_search_0_tr",
+			"tr.",
+			"event-date",
+			"map",
+			"z-index",
+			"1500",
+			"$font__line-height-body",
+			"transform",
+			"$color__bg-menu-item",
+			"event_hover",
+			"$font__size-social ",
+			"@mixin grid-row",
+			"z-in",
+			"@include colum",
+			"accordion",
+			"is_tree",
+			"ui-icons",
+			"glass",
+			"content",
+			"#fpmenubox-t",
+			"fpmenuboxes",
+			"fpmenubox",
+			"#fpmenu",
+			"ui-accordion",
+			"Content",
+			"footercon",
+			"1040px",
+			"$bp_tablet",
+			"tablet",
+			".search",
+			"+ 65",
+			"bold",
+			"font-weight",
+			"container",
+			"601px",
+			"600px",
+			"container",
+			"fp",
+			"Upper",
+			"header",
+			"#fp",
+			".home",
+			"headers",
+			".main-navi",
+			"footer",
+			"footlinks",
+			"#fpmenuboxes",
+			"#fpimages",
+			"#header",
+			"#disablemap",
+			"#breadcrumbs",
+			"#mobile-pageheader",
+			".pageheader",
+			"#headermenu",
+			"#copyright",
+			"#fpslider",
+			".search-field",
+			".footer-wrap",
+			".container",
+			".main-navig",
+			".menu-toggle",
+			"#fpimages",
+			".fpmenubox",
+			"#fpmenuboxes",
+			"#mobile-content",
+			".upper-tab",
+			".header-menu",
+			"#header"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$choices",
+			"get_i18n",
+			"n 		N",
+			"n 		s",
+			"@since 		1.0.0",
+			"@var 		N",
+			"y 					$",
+			"n 		t",
+			"m 		a",
+			"l 	$",
+			"t 		O",
+			"m 		i",
+			"t 					$",
+			"g 					$",
+			"m 		o",
+			"y 			$",
+			"@var 		a",
+			"@access 		p",
+			"m 		s",
+			"@subpackage 	N",
+			"m 		s",
+			"g 			$",
+			"@var 		s",
+			"@access 		private",
+			"@author 		Slushman <chris@slushman.com>",
+			"@subpackage 	Now_Hiring/admin",
+			"@subpackage 	Now_Hiring/admin/partials",
+			"@package 	Now_Hiring",
+			"@since 		1.0.0",
+			"@link 		http://slushman.com",
+			"@since 		1.0.0",
+			"@package 			Now_Hiring",
+			"@since 				1.0.0",
+			"@link 				http://slushman.com",
+			"Now_Hiring",
+			"now-hiring",
+			"/Users/chriswilcoxson/",
+			"/Users/chriswilcoxson/Dropbox/",
+			"$bp__tablet",
+			"thebabyfold-",
+			" thebabyfold",
+			"Text Domain: thebabyfold",
+			"thebabyfold_",
+			"'thebabyfold'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/chriswilcoxson/Dropbox/Sites/multisite.dev/wp-content/plugins/simple-lyrics/simple-lyrics.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 33564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17798,
+								19465
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Tomorrow-Night.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9804.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "simple-lyrics.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 305.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
