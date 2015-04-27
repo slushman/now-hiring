@@ -44,9 +44,9 @@ class Now_Hiring {
 	 *
 	 * @since 		1.0.0
 	 * @access 		protected
-	 * @var 		string 			$i18n 		The string used to uniquely identify this plugin.
+	 * @var 		string 			$plugin_name 		The string used to uniquely identify this plugin.
 	 */
-	protected $i18n;
+	protected $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -68,14 +68,17 @@ class Now_Hiring {
 	 */
 	public function __construct() {
 
-		$this->i18n = 'now-hiring';
+		$this->plugin_name = 'now-hiring';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		$this->define_shared_hooks();
+
+		//$this->define_shared_hooks();
+
+		$this->define_widget_hooks();
 
 	}
 
@@ -147,7 +150,7 @@ class Now_Hiring {
 	private function set_locale() {
 
 		$plugin_i18n = new Now_Hiring_i18n();
-		$plugin_i18n->set_domain( $this->get_i18n() );
+		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -162,7 +165,7 @@ class Now_Hiring {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Now_Hiring_Admin( $this->get_i18n(), $this->get_version() );
+		$plugin_admin = new Now_Hiring_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 	'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 	'enqueue_scripts' );
@@ -173,12 +176,14 @@ class Now_Hiring {
 		$this->loader->add_action( 'add_meta_boxes', 			$plugin_admin, 	'add_metaboxes' );
 		$this->loader->add_action( 'save_post_jobs', 			$plugin_admin, 	'save_meta', 10, 2 );
 
-		$this->loader->add_action( 'plugin_action_links_' . NOW_HIRING_BASENAME, $plugin_admin, 'settings_link' );
+		$this->loader->add_action( 'plugin_action_links_' . $this->get_plugin_name(), $plugin_admin, 'settings_link' );
 		$this->loader->add_action( 'plugin_row_meta', 			$plugin_admin, 	'row_links', 10, 2 );
 
 		$this->loader->add_action( 'admin_menu', 				$plugin_admin, 	'add_menu' );
 
 		$this->loader->add_action( 'admin_init', 				$plugin_admin, 	'register_settings' );
+
+		$this->loader->add_action( 'admin_print_scripts', 		$plugin_admin, 	'admin_footer', 1000 );
 
 	}
 
@@ -191,11 +196,21 @@ class Now_Hiring {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Now_Hiring_Public( $this->get_i18n(), $this->get_version() );
+		$plugin_public = new Now_Hiring_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', 	$plugin_public, 	'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', 	$plugin_public, 	'enqueue_scripts' );
+
 		$this->loader->add_action( 'init', 					$plugin_public, 	'register_shortcodes' );
+
+		/**
+		 * Action instead of template tag.
+		 *
+		 * do_action( 'now_hiring' );
+		 *
+		 * @link 	http://nacin.com/2010/05/18/rethinking-template-tags-in-plugins/
+		 */
+		$this->loader->add_action( 'now_hiring', 			$plugin_public, 	'shortcode' );
 
 	}
 
@@ -208,7 +223,7 @@ class Now_Hiring {
 	 */
 	private function define_shared_hooks() {
 
-		$plugin_shared = new Now_Hiring_Shared( $this->get_i18n(), $this->get_version() );
+		$plugin_shared = new Now_Hiring_Shared( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'widgets_init', $plugin_shared, 'widgets_init' );
 		$this->loader->add_action( 'save_post_jobs', $plugin_shared, 'flush_widget_cache' );
@@ -233,8 +248,8 @@ class Now_Hiring {
 	 * @since 		1.0.0
 	 * @return 		string 					The name of the plugin.
 	 */
-	public function get_i18n() {
-		return $this->i18n;
+	public function get_plugin_name() {
+		return $this->plugin_name;
 	}
 
 	/**
@@ -256,5 +271,63 @@ class Now_Hiring {
 	public function get_version() {
 		return $this->version;
 	}
+
+
+
+
+
+	// Option 2
+
+	/**
+	 * Register all of the hooks shared between public-facing and admin functionality
+	 * of the plugin.
+	 *
+	 * @since 		1.0.0
+	 * @access 		private
+	 */
+	private function define_widget_hooks() {
+
+		$this->loader->add_action( 'widgets_init', $this, 'widgets_init' );
+		$this->loader->add_action( 'save_post_jobs', $this, 'flush_widget_cache' );
+		$this->loader->add_action( 'deleted_post', $this, 'flush_widget_cache' );
+		$this->loader->add_action( 'switch_theme', $this, 'flush_widget_cache' );
+
+	}
+
+
+
+	/**
+	 * Flushes widget cache
+	 *
+	 * @since 		1.0.0
+	 * @access 		public
+	 * @param 		int 		$post_id 		The post ID
+	 * @return 		void
+	 */
+	public function flush_widget_cache( $post_id ) {
+
+		if ( wp_is_post_revision( $post_id ) ) { return; }
+
+		$post = get_post( $post_id );
+
+		if ( $post->post_type == 'jobs' ) {
+
+			wp_cache_delete( $this->plugin_name, 'widget' );
+
+		}
+
+	}
+
+	/**
+	 * Registers widgets with WordPress
+	 *
+	 * @since 		1.0.0
+	 * @access 		public
+	 */
+	public function widgets_init() {
+
+		register_widget( 'now_hiring_widget' );
+
+	} // widgets_init()
 
 }

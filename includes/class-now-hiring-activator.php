@@ -31,5 +31,7 @@ class Now_Hiring_Activator {
 	 */
 	public static function activate() {
 
+		//
+
 	}
 }

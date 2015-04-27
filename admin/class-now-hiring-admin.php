@@ -27,9 +27,9 @@ class Now_Hiring_Admin {
 	 *
 	 * @since 		1.0.0
 	 * @access 		private
-	 * @var 		string 			$i18n 		The ID of this plugin.
+	 * @var 		string 			$plugin_name 		The ID of this plugin.
 	 */
-	private $i18n;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -47,9 +47,9 @@ class Now_Hiring_Admin {
 	 * @param 		string 			$Now_Hiring 		The name of this plugin.
 	 * @param 		string 			$version 			The version of this plugin.
 	 */
-	public function __construct( $i18n, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->i18n = $i18n;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -61,7 +61,8 @@ class Now_Hiring_Admin {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->i18n, plugin_dir_url( __FILE__ ) . 'css/now-hiring-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/now-hiring-admin.css', array(), $this->version, 'all' );
+		//wp_enqueue_style( 'jquery.ui.theme', plugin_dir_url( __FILE__ ) . '/css/jquery-ui-1.8.17.custom.css' ), array( 'jquery-ui-core', 'jquery-ui-datepicker' ), $this->version, 'all' );
 
 	}
 
@@ -70,11 +71,37 @@ class Now_Hiring_Admin {
 	 *
 	 * @since 		1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts( $hook_suffix ) {
 
-		wp_enqueue_script( $this->i18n, plugin_dir_url( __FILE__ ) . 'js/now-hiring-admin.js', array( 'jquery' ), $this->version, false );
+		$screen = get_current_screen();
+
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/now-hiring-admin.js', array( 'jquery' ), $this->version, false );
+
+		if ( $screen->id == $hook_suffix ) {
+
+			wp_enqueue_script( 'jquery-ui-datepicker' );
+
+		}
 
 	}
+
+	public function admin_footer() {
+
+		$screen = get_current_screen();
+
+		if ( $screen->id == 'settings_page_' . $this->plugin_name ) {
+
+			?><script type="text/javascript">
+				jQuery(document).ready(function(){
+					jQuery('.datepicker').datepicker({
+						dateFormat : 'D, m/d/yy'
+					});
+				});
+			</script><?php
+
+		}
+
+	} // admin_footer()
 
 	/**
 	 * Creates a new custom post type
@@ -125,26 +152,28 @@ class Now_Hiring_Admin {
 		$opts['capabilities']['read_post']				= "read_{$cap_type}";
 		$opts['capabilities']['read_private_posts']		= "read_private_{$cap_type}s";
 
-		$opts['labels']['add_new']						= __( "Add New {$single}", $this->i18n );
-		$opts['labels']['add_new_item']					= __( "Add New {$single}", $this->i18n );
-		$opts['labels']['all_items']					= __( $plural, $this->i18n );
-		$opts['labels']['edit_item']					= __( "Edit {$single}" , $this->i18n);
-		$opts['labels']['menu_name']					= __( $plural, $this->i18n );
-		$opts['labels']['name']							= __( $plural, $this->i18n );
-		$opts['labels']['name_admin_bar']				= __( $single, $this->i18n );
-		$opts['labels']['new_item']						= __( "New {$single}", $this->i18n );
-		$opts['labels']['not_found']					= __( "No {$plural} Found", $this->i18n );
-		$opts['labels']['not_found_in_trash']			= __( "No {$plural} Found in Trash", $this->i18n );
-		$opts['labels']['parent_item_colon']			= __( "Parent {$plural} :", $this->i18n );
-		$opts['labels']['search_items']					= __( "Search {$plural}", $this->i18n );
-		$opts['labels']['singular_name']				= __( $single, $this->i18n );
-		$opts['labels']['view_item']					= __( "View {$single}", $this->i18n );
+		$opts['labels']['add_new']						= __( "Add New {$single}", 'now-hiring' );
+		$opts['labels']['add_new_item']					= __( "Add New {$single}", 'now-hiring' );
+		$opts['labels']['all_items']					= __( $plural, 'now-hiring' );
+		$opts['labels']['edit_item']					= __( "Edit {$single}" , 'now-hiring' );
+		$opts['labels']['menu_name']					= __( $plural, 'now-hiring' );
+		$opts['labels']['name']							= __( $plural, 'now-hiring' );
+		$opts['labels']['name_admin_bar']				= __( $single, 'now-hiring' );
+		$opts['labels']['new_item']						= __( "New {$single}", 'now-hiring' );
+		$opts['labels']['not_found']					= __( "No {$plural} Found", 'now-hiring' );
+		$opts['labels']['not_found_in_trash']			= __( "No {$plural} Found in Trash", 'now-hiring' );
+		$opts['labels']['parent_item_colon']			= __( "Parent {$plural} :", 'now-hiring' );
+		$opts['labels']['search_items']					= __( "Search {$plural}", 'now-hiring' );
+		$opts['labels']['singular_name']				= __( $single, 'now-hiring' );
+		$opts['labels']['view_item']					= __( "View {$single}", 'now-hiring' );
 
 		$opts['rewrite']['ep_mask']						= EP_PERMALINK;
 		$opts['rewrite']['feeds']						= FALSE;
 		$opts['rewrite']['pages']						= TRUE;
-		$opts['rewrite']['slug']						= __( strtolower( $plural ), $this->i18n );
+		$opts['rewrite']['slug']						= __( strtolower( $plural ), 'now-hiring' );
 		$opts['rewrite']['with_front']					= FALSE;
+
+		$opts = apply_filters( 'now-hiring-cpt-options', $opts );
 
 		register_post_type( strtolower( $cpt_name ), $opts );
 
@@ -179,28 +208,30 @@ class Now_Hiring_Admin {
 		$opts['capabilities']['edit_terms'] 			= 'manage_categories';
 		$opts['capabilities']['manage_terms'] 			= 'manage_categories';
 
-		$opts['labels']['add_new_item'] 				= __( "Add New {$single}", $this->i18n );
-		$opts['labels']['add_or_remove_items'] 			= __( "Add or remove {$plural}", $this->i18n );
-		$opts['labels']['all_items'] 					= __( $plural, $this->i18n );
-		$opts['labels']['choose_from_most_used'] 		= __( "Choose from most used {$plural}", $this->i18n );
-		$opts['labels']['edit_item'] 					= __( "Edit {$single}" , $this->i18n);
-		$opts['labels']['menu_name'] 					= __( $plural, $this->i18n );
-		$opts['labels']['name'] 						= __( $plural, $this->i18n );
-		$opts['labels']['new_item_name'] 				= __( "New {$single} Name", $this->i18n );
-		$opts['labels']['not_found'] 					= __( "No {$plural} Found", $this->i18n );
-		$opts['labels']['parent_item'] 					= __( "Parent {$single}", $this->i18n );
-		$opts['labels']['parent_item_colon'] 			= __( "Parent {$single}:", $this->i18n );
-		$opts['labels']['popular_items'] 				= __( "Popular {$plural}", $this->i18n );
-		$opts['labels']['search_items'] 				= __( "Search {$plural}", $this->i18n );
-		$opts['labels']['separate_items_with_commas'] 	= __( "Separate {$plural} with commas", $this->i18n );
-		$opts['labels']['singular_name'] 				= __( $single, $this->i18n );
-		$opts['labels']['update_item'] 					= __( "Update {$single}", $this->i18n );
-		$opts['labels']['view_item'] 					= __( "View {$single}", $this->i18n );
+		$opts['labels']['add_new_item'] 				= __( "Add New {$single}", 'now-hiring' );
+		$opts['labels']['add_or_remove_items'] 			= __( "Add or remove {$plural}", 'now-hiring' );
+		$opts['labels']['all_items'] 					= __( $plural, 'now-hiring' );
+		$opts['labels']['choose_from_most_used'] 		= __( "Choose from most used {$plural}", 'now-hiring' );
+		$opts['labels']['edit_item'] 					= __( "Edit {$single}" , 'now-hiring');
+		$opts['labels']['menu_name'] 					= __( $plural, 'now-hiring' );
+		$opts['labels']['name'] 						= __( $plural, 'now-hiring' );
+		$opts['labels']['new_item_name'] 				= __( "New {$single} Name", 'now-hiring' );
+		$opts['labels']['not_found'] 					= __( "No {$plural} Found", 'now-hiring' );
+		$opts['labels']['parent_item'] 					= __( "Parent {$single}", 'now-hiring' );
+		$opts['labels']['parent_item_colon'] 			= __( "Parent {$single}:", 'now-hiring' );
+		$opts['labels']['popular_items'] 				= __( "Popular {$plural}", 'now-hiring' );
+		$opts['labels']['search_items'] 				= __( "Search {$plural}", 'now-hiring' );
+		$opts['labels']['separate_items_with_commas'] 	= __( "Separate {$plural} with commas", 'now-hiring' );
+		$opts['labels']['singular_name'] 				= __( $single, 'now-hiring' );
+		$opts['labels']['update_item'] 					= __( "Update {$single}", 'now-hiring' );
+		$opts['labels']['view_item'] 					= __( "View {$single}", 'now-hiring' );
 
 		$opts['rewrite']['ep_mask']						= EP_NONE;
 		$opts['rewrite']['hierarchical']				= FALSE;
-		$opts['rewrite']['slug']						= __( strtolower( $tax_name ), $this->i18n );
+		$opts['rewrite']['slug']						= __( strtolower( $tax_name ), 'now-hiring' );
 		$opts['rewrite']['with_front']					= FALSE;
+
+		$opts = apply_filters( 'now-hiring-taxonomy-options', $opts );
 
 		register_taxonomy( $tax_name, 'jobs', $opts );
 
@@ -218,7 +249,7 @@ class Now_Hiring_Admin {
 
 		add_meta_box(
 			'now_hiring_job_location',
-			__( 'Job Location', $this->i18n ),
+			apply_filters( 'now-hiring-location-metabox-title', __( 'Job Location', 'now-hiring' ) ),
 			array( $this, 'callback_metabox_job_location' ),
 			'jobs',
 			'normal',
@@ -288,13 +319,15 @@ class Now_Hiring_Admin {
 	} // save_meta()
 
 	/**
-	 * [settings_link description]
-	 * @param  [type] $links [description]
-	 * @return [type]        [description]
+	 * Adds a link to the plugin settings page
+	 *
+	 * @since 		1.0.0
+	 * @param 		array 		$links 		The current array of links
+	 * @return 		array 					The modified array of links
 	 */
 	public function settings_link( $links ) {
 
-		$settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'options-general.php?page=now-hiring' ), __( 'Settings' ) );
+		$settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'options-general.php?page=' . $this->plugin_name ), __( 'Settings', 'now-hiring' ) );
 
 		array_unshift( $links, $settings_link );
 
@@ -303,15 +336,18 @@ class Now_Hiring_Admin {
 	} // settings_link()
 
 	/**
-	 * [row_links description]
-	 * @param  [type] $links [description]
-	 * @return [type]        [description]
+	 * Adds links to the plugin links row
+	 *
+	 * @since 		1.0.0
+	 * @param 		array 		$links 		The current array of row links
+	 * @param 		string 		$file 		The name of the file
+	 * @return 		array 					The modified array of row links
 	 */
 	public function row_links( $links, $file ) {
 
-		if ( $file == NOW_HIRING_BASENAME ) {
+		if ( $file == $this->plugin_name ) {
 
-			$link = '<a href="http://grumpycats.com/">Grumpy Cat</a>';
+			$link = '<a href="http://twitter.com/slushman">Twitter</a>';
 
 			array_push( $links, $link );
 
@@ -321,28 +357,40 @@ class Now_Hiring_Admin {
 
 	} // row_links()
 
+	/**
+	 * Adds a settings page link to a menu
+	 *
+	 * @since 		1.0.0
+	 * @return 		void
+	 */
 	public function add_menu() {
 
 		// add_options_page( $page_title, $menu_title, $capability, $menu_slug, $callback );
 
 		add_options_page(
-			__( 'Now Hiring Settings', $this->i18n ),
-			__( 'Now Hiring', $this->i18n ),
+			apply_filters( $this->plugin_name . '-settings-page-title', __( 'Now Hiring Settings', 'now-hiring' ) ),
+			apply_filters( $this->plugin_name . '-settings-menu-title', __( 'Now Hiring', 'now-hiring' ) ),
 			'manage_options',
-			'now-hiring',
+			$this->plugin_name,
 			array( $this, 'options_page' )
 		);
 
 	} // add_menu()
 
+	/**
+	 * Creates the options page
+	 *
+	 * @since 		1.0.0
+	 * @return 		void
+	 */
 	public function options_page() {
 
-		?><h2>Now Hiring Settings</h2>
+		?><h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 		<form method="post" action="options.php"><?php
 
 		settings_fields( 'now_hiring_options' );
 
-		do_settings_sections( 'now-hiring' );
+		do_settings_sections( $this->plugin_name );
 
 		submit_button( 'Save Settings' );
 
@@ -350,46 +398,85 @@ class Now_Hiring_Admin {
 
 	} // options_page()
 
+	/**
+	 * Registers plugin settings, sections, and fields
+	 *
+	 * @since 		1.0.0
+	 * @return 		void
+	 */
 	public function register_settings() {
 
 		// register_setting( $option_group, $option_name, $sanitize_callback );
 
 		register_setting(
-			'now_hiring_options',
-			'now_hiring_options',
+			$this->plugin_name . '-options',
+			$this->plugin_name . '-options',
 			array( $this, 'validate_options' )
 		);
 
 		// add_settings_section( $id, $title, $callback, $menu_slug );
 
 		add_settings_section(
-			'now_hiring_display_options',
-			'Display Options',
+			$this->plugin_name . '-display-options',
+			apply_filters( $this->plugin_name . '-display-section-title', __( 'Display Options', 'now-hiring' ) ),
 			array( $this, 'display_options_section' ),
-			'now-hiring'
+			$this->plugin_name
 		);
 
 		// add_settings_field( $id, $title, $callback, $menu_slug, $section, $args );
 
 		add_settings_field(
-			'display_salary',
-			'Display Salary',
+			'display-salary',
+			apply_filters( $this->plugin_name . '-display-salary-label', __( 'Display Salary', 'now-hiring' ) ),
 			array( $this, 'display_options_field' ),
-			'now-hiring',
-			'now_hiring_display_options'
+			$this->plugin_name,
+			$this->plugin_name . '-display-options'
+		);
+
+		add_settings_field(
+			'date-expiration',
+			apply_filters( $this->plugin_name . '-date-expiration-label', __( 'Expiration Date', 'now-hiring' ) ),
+			array( $this, 'date_expiration_field' ),
+			$this->plugin_name,
+			$this->plugin_name . '-display-options'
 		);
 
 	} // register_settings()
 
+	/**
+	 * Validates saved options
+	 *
+	 * @since 		1.0.0
+	 * @param 		array 		$input 			array of submitted plugin options
+	 * @return 		array 						array of validated plugin options
+	 */
 	public function validate_options( $input ) {
 
-		$display_salary 			= trim( $input['display_salary'] );
-		$valid 						= array();
-		$valid['display_salary'] 	= isset( $display_salary ) ? 1 : 0;
+		$valid = array();
 
-		if ( $valid['display_salary'] != $input['display_salary'] ) {
+		if ( isset( $input['display-salary'] ) ) {
 
-			add_settings_error( 'display_salary', 'display_salary_error', 'Display salary error.', 'error' );
+			$display_salary 			= trim( $input['display-salary'] );
+			$valid['display-salary'] 	= isset( $display_salary ) ? 1 : 0;
+
+			if ( $valid['display-salary'] != $input['display-salary'] ) {
+
+				add_settings_error( 'display-salary', 'display_salary_error', __( 'Display salary error.', 'now-hiring' ), 'error' );
+
+			}
+
+		}
+
+		if ( isset( $input['date-expiration'] ) ) {
+
+			$date_expiration 			= trim( $input['date-expiration'] );
+			$valid['date-expiration'] 	= sanitize_text_field( $date_expiration );
+
+			if ( $valid['date-expiration'] != $input['date-expiration'] ) {
+
+				add_settings_error( 'date-expiration', 'date_expiration_error', __( 'Date expiration error.', 'now-hiring' ), 'error' );
+
+			}
 
 		}
 
@@ -397,18 +484,59 @@ class Now_Hiring_Admin {
 
 	} // validate_options()
 
+	/**
+	 * Creates a settings section
+	 *
+	 * @since 		1.0.0
+	 * @param 		array 		$params 		Array of parameters for the section
+	 * @return 		mixed 						The settings section
+	 */
 	public function display_options_section( $params ) {
 
 		echo '<p>' . $params['title'] . '</p>';
 
 	} // display_options_section()
 
+	/**
+	 * Creates a settings field
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
 	public function display_options_field() {
 
-		$options = get_option( 'now_hiring_options' );
+		$options 	= get_option( $this->plugin_name . '-options' );
+		$option 	= 0;
 
-		?><input type="checkbox" id="now_hiring_options[display_salary]" name="now_hiring_options[display_salary]" value="1" <?php checked( 1, $options['display_salary'], false ); ?> /><?php
+		if ( ! empty( $options['display-salary'] ) ) {
+
+			$option = $options['display-salary'];
+
+		}
+
+		?><input type="checkbox" id="<?php echo $this->plugin_name; ?>-options'[display-salary]" name="<?php echo $this->plugin_name; ?>-options'[display-salary]" value="1" <?php checked( 1, $option, false ); ?> /><?php
 
 	} // display_options_field()
+
+	/**
+	 * Creates a settings field
+	 *
+	 * @since 		1.0.0
+	 * @return 		mixed 			The settings field
+	 */
+	public function date_expiration_field() {
+
+		$options  	= get_option( $this->plugin_name . '-options' );
+		$option 	= '';
+
+		if ( ! empty( $options['date-expiration'] ) ) {
+
+			$option = $options['date-expiration'];
+
+		}
+
+		?><input type="text" class="datepicker" id="<?php echo $this->plugin_name; ?>-options'[date-expiration]" name="<?php echo $this->plugin_name; ?>-options'[date-expiration]" value="<?php echo esc_attr( $option ); ?>"><?php
+
+	} // date_expiration_field()
 
 } // class

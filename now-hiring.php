@@ -30,10 +30,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! defined( 'NOW_HIRING_BASENAME' ) ) {
-	define( 'NOW_HIRING_BASENAME', plugin_basename( __FILE__ ) );
-}
-
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-now-hiring-activator.php

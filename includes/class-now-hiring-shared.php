@@ -28,9 +28,9 @@ class Now_Hiring_Shared {
 	 *
 	 * @since 		1.0.0
 	 * @access 		private
-	 * @var 		string 			$i18n 		The ID of this plugin.
+	 * @var 		string 			$plugin_name 		The ID of this plugin.
 	 */
-	private $i18n;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -48,9 +48,9 @@ class Now_Hiring_Shared {
 	 * @param 		string 			$Now_Hiring 		The name of this plugin.
 	 * @param 		string 			$version 			The version of this plugin.
 	 */
-	public function __construct( $i18n, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->i18n = $i18n;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -71,7 +71,7 @@ class Now_Hiring_Shared {
 
 		if ( $post->post_type == 'jobs' ) {
 
-			wp_cache_delete( $this->i18n, 'widget' );
+			wp_cache_delete( $this->plugin_name, 'widget' );
 
 		}
 

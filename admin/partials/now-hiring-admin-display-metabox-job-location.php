@@ -21,9 +21,9 @@ if ( ! empty( $meta['job-location'][0] ) ) {
 
 }
 
-wp_nonce_field( NOW_HIRING_BASENAME, 'job_location_nonce' );
+wp_nonce_field( $this->plugin_name, 'job_location_nonce' );
 
 ?><p>
-	<label for="job-location"><?php _e( 'Location', $this->i18n ); ?>: </label>
+	<label for="job-location"><?php _e( 'Location', 'now-hiring' ); ?>: </label>
 	<input class="widefat" type="text" name="job-location" id="job-location" value="<?php echo esc_attr( $value ); ?>" />
 </p>

@@ -20,39 +20,27 @@
 class Now_Hiring_Widget extends WP_Widget {
 
 	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since 		1.0.0
-	 * @access 		private
-	 * @var 		array 			$fields 		Contains all the field info
-	 */
-	private $fields;
-
-	/**
 	 * The ID of this plugin.
 	 *
 	 * @since 		1.0.0
 	 * @access 		private
-	 * @var 		string 			$i18n 		The ID of this plugin.
+	 * @var 		string 			$plugin_name 		The ID of this plugin.
 	 */
-	private $i18n;
+	private $plugin_name;
 
 	/**
 	 * Register widget with WordPress.
 	 */
 	function __construct() {
 
-		$this->i18n 			= 'now-hiring';
+		$this->plugin_name 			= 'now-hiring';
+
 		$name 					= __( 'Now Hiring', 'now-hiring' );
 		$opts['classname'] 		= '';
 		$opts['description'] 	= __( 'Display job postings on a sidebar', 'now-hiring' );
 		$control				= array( 'width' => '', 'height' => '' );
 
 		parent::__construct( false, $name, $opts, $control );
-
-		// Create all the form fields here. This is used for both form() and update()
-		$this->fields[] = array( 'name' => 'Title', 'underscored' => 'title', 'type' => 'text', 'value' => 'Now Hiring' );
 
 	} // __construct()
 
@@ -81,23 +69,6 @@ class Now_Hiring_Widget extends WP_Widget {
 
 		echo '<p><label for="' . $id . '">' . __( ucwords( $textfield ) ) . ': <input class="widefat" id="' . $id . '" name="' . $name . '" type="text" value="' . $value . '" /></label>';
 
-		// foreach ( $this->fields as $field ) {
-
-		// 	$corv 				= ( $field['type'] == 'checkbox' ? 'check' : 'value' );
-		// 	$args[$corv]		= ( isset( $instance[$field['underscored']] ) ? $instance[$field['underscored']] : $field['value'] );
-		// 	$args['blank']		= ( $field['type'] == 'select' ? TRUE : '' );
-		// 	$args['class']		= $field['underscored'] . ( $field['type'] == 'text' ? ' widefat' : '' );
-		// 	$args['desc'] 		= ( !empty( $field['desc'] ) ? $field['desc'] : '' );
-		// 	$args['id'] 		= $this->get_field_id( $field['underscored'] );
-		// 	$args['label']		= $field['name'];
-		// 	$args['name'] 		= $this->get_field_name( $field['underscored'] );
-		// 	$args['selections']	= ( !empty( $field['sels'] ) ? $field['sels'] : array() );
-		// 	$args['type'] 		= ( empty( $field['type'] ) ? '' : $field['type'] );
-
-		// 	echo '<p>' . $adp->create_settings( $args ) . '</p>';
-
-		// } // End of $fields foreach
-
 	} // form()
 
 	/**
@@ -113,7 +84,7 @@ class Now_Hiring_Widget extends WP_Widget {
 	 */
 	function widget( $args, $instance ) {
 
-		$cache = wp_cache_get( $this->i18n, 'widget' );
+		$cache = wp_cache_get( $this->plugin_name, 'widget' );
 
 		if ( ! is_array( $cache ) ) {
 
@@ -123,7 +94,7 @@ class Now_Hiring_Widget extends WP_Widget {
 
 		if ( ! isset ( $args['widget_id'] ) ) {
 
-			$args['widget_id'] = $this->i18n;
+			$args['widget_id'] = $this->plugin_name;
 
 		}
 
@@ -148,7 +119,7 @@ class Now_Hiring_Widget extends WP_Widget {
 
 		$cache[ $args['widget_id'] ] = $widget_string;
 
-		wp_cache_set( $this->i18n, $cache, 'widget' );
+		wp_cache_set( $this->plugin_name, $cache, 'widget' );
 
 		print $widget_string;
 
@@ -169,27 +140,6 @@ class Now_Hiring_Widget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-
-/*		foreach ( $this->fields as $field ) {
-
-			$name = $field['underscored'];
-
-			switch ( $field['type'] ) {
-
-				case ( 'email' )		: $instance[$name] = sanitize_email( $new_instance[$name] ); break;
-				case ( 'number' )		: $instance[$name] = intval( $new_instance[$name] ); break;
-				case ( 'url' ) 			: $instance[$name] = esc_url( $new_instance[$name] ); break;
-				case ( 'text' ) 		: $instance[$name] = sanitize_text_field( $new_instance[$name] ); break;
-				case ( 'textarea' )		: $instance[$name] = esc_textarea( $new_instance[$name] ); break;
-				case ( 'checkgroup' ) 	: $instance[$name] = strip_tags( $new_instance[$name] ); break;
-				case ( 'radios' ) 		: $instance[$name] = strip_tags( $new_instance[$name] ); break;
-				case ( 'select' )		: $instance[$name] = strip_tags( $new_instance[$name] ); break;
-				case ( 'tel' ) 			: $instance[$name] = $adp->sanitize_phone( $new_instance[$name] ); break;
-				case ( 'checkbox' ) 	: $instance[$name] = ( isset( $new_instance[$name] ) ? 1 : 0 ); break;
-
-			} // switch
-
-		} // foreach*/
 
 		return $instance;
 

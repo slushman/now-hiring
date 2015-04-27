@@ -12,9 +12,11 @@
  * @subpackage 	Now_Hiring/public/partials
  */
 
+$options = get_option( 'now_hiring_options' );
+
 foreach ( $items->posts as $item ) {
 
-	include( plugin_dir_path( __FILE__ ) . 'now-hiring-public-display-single.php' );
+	include( plugin_dir_path( __FILE__ ) . 'now-hiring-public-display-single-' . esc_attr( $options['layout'] ) . '.php' );
 
 } // foreach
 

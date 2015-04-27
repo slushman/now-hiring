@@ -27,9 +27,9 @@ class Now_Hiring_Public {
 	 *
 	 * @since 		1.0.0
 	 * @access 		private
-	 * @var 		string 			$i18n 		The ID of this plugin.
+	 * @var 		string 			$plugin_name 		The ID of this plugin.
 	 */
-	private $i18n;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -47,9 +47,9 @@ class Now_Hiring_Public {
 	 * @param 		string 			$Now_Hiring 		The name of the plugin.
 	 * @param 		string 			$version 			The version of this plugin.
 	 */
-	public function __construct( $i18n, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->i18n = $i18n;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -61,7 +61,7 @@ class Now_Hiring_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->i18n, plugin_dir_url( __FILE__ ) . 'css/now-hiring-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/now-hiring-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -72,7 +72,7 @@ class Now_Hiring_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->i18n, plugin_dir_url( __FILE__ ) . 'js/now-hiring-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/now-hiring-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -103,7 +103,7 @@ class Now_Hiring_Public {
 
 		$defaults['order'] 		= 'date';
 		$defaults['quantity'] 	= -1;
-		$args					= wp_parse_args( $atts, $defaults );
+		$args					= shortcode_atts( $defaults, $atts, 'nowhiring' );
 		$items 					= $this->get_job_posts( $args );
 
 		if ( is_array( $items ) || is_object( $items ) ) {
