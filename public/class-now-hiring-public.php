@@ -23,6 +23,15 @@
 class Now_Hiring_Public {
 
 	/**
+	 * The plugin options.
+	 *
+	 * @since 		1.0.0
+	 * @access 		private
+	 * @var 		string 			$options    The plugin options.
+	 */
+	private $options;
+
+	/**
 	 * The ID of this plugin.
 	 *
 	 * @since 		1.0.0
@@ -52,6 +61,8 @@ class Now_Hiring_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->set_options();
+
 	}
 
 	/**
@@ -72,23 +83,12 @@ class Now_Hiring_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/now-hiring-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/now-hiring-public.js', array( 'jquery' ), $this->version, true );
 
 	}
 
 	/**
-	 * Registers all shortcodes at once
-	 *
-	 * @return [type] [description]
-	 */
-	public function register_shortcodes() {
-
-		add_shortcode( 'nowhiring', array( $this, 'shortcode' ) );
-
-	} // register_shortcodes()
-
-	/**
-	 * Processes shortcode
+	 * Processes shortcode howtoapply
 	 *
 	 * @param   array	$atts		The attributes from the shortcode
 	 *
@@ -97,18 +97,46 @@ class Now_Hiring_Public {
 	 *
 	 * @return	mixed	$output		Output of the buffer
 	 */
-	public function shortcode( $atts ) {
+	public function how_to_apply() {
+
+		if ( empty( $this->options['howtoapply'] ) ) { return; }
 
 		ob_start();
 
-		$defaults['order'] 		= 'date';
-		$defaults['quantity'] 	= -1;
-		$args					= shortcode_atts( $defaults, $atts, 'nowhiring' );
-		$items 					= $this->get_job_posts( $args );
+		include now_hiring_get_template( 'now-hiring-how-to-apply' );
+
+		$output = ob_get_contents();
+
+		ob_end_clean();
+
+		return $output;
+
+	} // how_to_apply()
+
+	/**
+	 * Processes shortcode nowhiring
+	 *
+	 * @param   array	$atts		The attributes from the shortcode
+	 *
+	 * @uses	get_option
+	 * @uses	get_layout
+	 *
+	 * @return	mixed	$output		Output of the buffer
+	 */
+	public function list_openings( $atts = array() ) {
+
+		ob_start();
+
+		$defaults['loop-template'] 	= $this->plugin_name . '-loop';
+		$defaults['order'] 			= 'date';
+		$defaults['quantity'] 		= 100;
+		$args						= shortcode_atts( $defaults, $atts, 'nowhiring' );
+		$shared 					= new Now_Hiring_Shared( $this->plugin_name, $this->version );
+		$items 						= $shared->get_openings( $args );
 
 		if ( is_array( $items ) || is_object( $items ) ) {
 
-			include( plugin_dir_path( __FILE__ ) . 'partials/now-hiring-public-display.php' );
+			include now_hiring_get_template( $args['loop-template'] );
 
 		} else {
 
@@ -122,41 +150,49 @@ class Now_Hiring_Public {
 
 		return $output;
 
-	} // shortcode()
+	} // list_openings()
 
 	/**
-	 * Returns a post object of portfolio posts
+	 * Registers all shortcodes at once
 	 *
-	 * @param 	array 		$params 			An array of optional parameters
-	 * 							types 			An array of portfolio item type slugs
-	 * 							industries		An array of portfolio industry slugs
-	 * 							quantity		Number of posts to return
-	 *
-	 * @return 	object 		A post object
+	 * @return [type] [description]
 	 */
-	private function get_job_posts( $params ) {
+	public function register_shortcodes() {
 
-		$return = '';
+		add_shortcode( 'nowhiring', array( $this, 'list_openings' ) );
+		add_shortcode( 'nowhiring-howtoapply', array( $this, 'how_to_apply' ) );
 
-		$args['post_type'] 		= 'jobs';
-		$args['post_status'] 	= 'publish';
-		$args['order_by'] 		= $params['order'];
-		$args['posts_per_page'] = $params['quantity'];
+	} // register_shortcodes()
 
-		$query = new WP_Query( $args );
+	/**
+	 * Adds a default single view template for a job opening
+	 *
+	 * @param 	string 		$template 		The name of the template
+	 * @return 	mixed 						The single template
+	 */
+	public function single_cpt_template( $template ) {
 
-		if ( 0 == $query->found_posts ) {
+		global $post;
 
-			$return = '<p>Thank you for your interest! There are no job openings at this time.</p>';
+		$return = $template;
 
-		} else {
+	    if ( $post->post_type == 'job' ) {
 
-			$return = $query;
+			$return = now_hiring_get_template( 'single-job' );
 
 		}
 
 		return $return;
 
-	} // get_job_posts()
+	} // single_cpt_template()
 
-}
+	/**
+	 * Sets the class variable $options
+	 */
+	private function set_options() {
+
+		$this->options = get_option( $this->plugin_name . '-options' );
+
+	} // set_options()
+
+} // class

@@ -12,12 +12,20 @@
  * @subpackage 	Now_Hiring/public/partials
  */
 
-$options = get_option( 'now_hiring_options' );
+?><ul class="wrap-jobs"><?php
 
 foreach ( $items->posts as $item ) {
 
-	include( plugin_dir_path( __FILE__ ) . 'now-hiring-public-display-single-' . esc_attr( $options['layout'] ) . '.php' );
+	do_action( 'now-hiring-jobs-list-before' );
+
+	?><li class="single-job"><?php
+
+	include now_hiring_get_template( $args['view-single'] );
+
+	?></li><?php
+
+	do_action( 'now-hiring-jobs-list-after' );
 
 } // foreach
 
-?>
+?></ul><?php

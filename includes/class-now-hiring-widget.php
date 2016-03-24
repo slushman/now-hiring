@@ -35,9 +35,9 @@ class Now_Hiring_Widget extends WP_Widget {
 
 		$this->plugin_name 			= 'now-hiring';
 
-		$name 					= __( 'Now Hiring', 'now-hiring' );
+		$name 					= esc_html__( 'Now Hiring', 'now-hiring' );
 		$opts['classname'] 		= '';
-		$opts['description'] 	= __( 'Display job postings on a sidebar', 'now-hiring' );
+		$opts['description'] 	= esc_html__( 'Display job postings on a sidebar', 'now-hiring' );
 		$control				= array( 'width' => '', 'height' => '' );
 
 		parent::__construct( false, $name, $opts, $control );
@@ -62,12 +62,12 @@ class Now_Hiring_Widget extends WP_Widget {
 		$defaults['title'] = '';
 		$instance 			= wp_parse_args( (array) $instance, $defaults );
 
-		$textfield 	= 'title'; // This is the name of the textfield
-		$id 		= $this->get_field_id( $textfield );
-		$name 		= $this->get_field_name( $textfield );
-		$value 		= esc_attr( $instance[$textfield] );
+		$field_text = 'title'; // This is the name of the textfield
+		$id 		= $this->get_field_id( $field_text );
+		$name 		= $this->get_field_name( $field_text );
+		$value 		= esc_attr( $instance[$field_text] );
 
-		echo '<p><label for="' . $id . '">' . __( ucwords( $textfield ) ) . ': <input class="widefat" id="' . $id . '" name="' . $name . '" type="text" value="' . $value . '" /></label>';
+		echo '<p><label for="' . $id . '">' . esc_html__( ucwords( $field_text ) ) . ': <input class="widefat" id="' . $id . '" name="' . $name . '" type="text" value="' . $value . '" /></label>';
 
 	} // form()
 

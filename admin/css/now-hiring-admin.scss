@@ -1,0 +1,159 @@
+/**
+ * All of the CSS for your dashboard-specific functionality should be
+ * included in this file.
+ *
+ * Pattern for first selector:
+ * cpt + '_page_' + plugin_name + page name
+ */
+
+.jobs_page_now-hiring-help {
+	ul li {
+		list-style: disc;
+		margin-left: 1.5em;
+	}
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.wrap-radios {
+	max-height: 175px;
+	overflow-y: scroll;
+}
+
+.post-type-job,
+.job_page_now-hiring-settings {
+
+	.repeater {
+		box-sizing 		: border-box;
+		margin-bottom 	: 1em;
+		width 			: 100%;
+
+		& * {
+			box-sizing: border-box;
+		}
+
+		.handle,
+		.repeater-content {
+			border 		: 1px solid #ddd;
+			padding 	: 0.75em;
+		}
+
+		.repeater-content {
+			border-top: none;
+		}
+
+		.handle {
+			background-color: #fafafa;
+			cursor 			: move;
+			overflow 		: auto;
+			position		: relative;
+			width 			: 100%;
+		}
+
+		.btn-edit {
+			background 		: none;
+			border 			: none;
+			border-radius 	: 0;
+			box-shadow 		: none;
+			cursor 			: pointer;
+			height 			: 100%;
+			margin 			: 0;
+			outline 		: 0;
+			overflow 		: hidden;
+			padding 		: 0;
+			position 		: absolute;
+			right 			: 0;
+			top 			: 0;
+			width 			: 30px;
+		}
+
+		.toggle-arrow {
+			color 					: #a0a5aa;
+			display 				: inline-block;
+			font-family 			: dashicons;
+			font-size 				: 20px;
+			font-style 				: normal;
+			font-weight 			: 400px;
+			height 					: 20px;
+			line-height 			: 1;
+			text-align 				: center;
+			text-decoration 		: inherit;
+			transition 				: 0.4s ease;
+			vertical-align 			: top;
+			-webkit-font-smoothing 	: antialiased;
+			width 					: 20px;
+
+			&:before {
+				content: "\f142";
+			}
+
+			&.closed:before {
+				content: "\f140";
+			}
+		}
+
+		.link-remove {
+			color			: #a00;
+			text-decoration : none;
+
+			&:hover {
+				color 			: red;
+				text-decoration : underline;
+			}
+		}
+
+		#upload-file {
+			display 	: block;
+			text-align 	: right;
+		}
+	}
+
+	.repeater-more {
+		text-align: right;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	input[type=file],
+	input[type=url] {
+		-webkit-appearance 	: none;
+		padding 			: 6px 10px;
+	}
+}
+
+@media screen and (min-width: 783px) {
+
+	#normal-sortables,
+	.job_page_now-hiring-settings {
+
+		.wrap-field {
+			display 		: inline-block;
+			vertical-align 	: top;
+
+			&:not(:last-child) {
+				margin-right: 1%;
+			}
+
+			input {
+				width: 100%;
+			}
+		}
+
+
+		.wrap-field:first-child:nth-last-child(2),
+		.wrap-field:first-child:nth-last-child(2) ~ p {
+			width: 48%;
+		}
+
+		.wrap-field:first-child:nth-last-child(3),
+		.wrap-field:first-child:nth-last-child(3) ~ p {
+			width: 32%;
+		}
+	}
+}

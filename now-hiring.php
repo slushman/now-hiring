@@ -8,6 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
+ * @author 				slushman
  * @link 				http://slushman.com
  * @since 				1.0.0
  * @package 			Now_Hiring
@@ -28,6 +29,11 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
+}
+
+// Used for referring to the plugin file or basename
+if ( ! defined( 'NOW_HIRING_FILE' ) ) {
+	define( 'NOW_HIRING_FILE', plugin_basename( __FILE__ ) );
 }
 
 /**
